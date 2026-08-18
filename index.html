@@ -65,19 +65,21 @@
 
   /* ---------------- Hero ---------------- */
   .hero{padding:56px 0 40px;}
-  .hero-top{max-width:760px;}
+  .hero-top{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
+  @media (max-width:900px){ .hero-top{grid-template-columns:1fr;gap:36px;} }
   .status-pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px 9px 12px;border:1.5px solid var(--line);border-radius:999px;font-weight:700;font-size:0.86rem;margin-bottom:22px;}
   .status-pill .dot{width:9px;height:9px;border-radius:50%;background:#3FAE6A;box-shadow:0 0 0 4px rgba(63,174,106,0.16);flex:none;}
-  .hero h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.02;}
-  .hero-desc{margin-top:22px;font-size:1.2rem;color:var(--ink-soft);max-width:46ch;}
-  .hero-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border-top:1px solid var(--line);padding-top:28px;}
-  .hero-stat{padding:0 32px 0 0;margin-right:32px;border-right:1px solid var(--line);}
-  .hero-stat:last-child{border-right:none;margin-right:0;padding-right:0;}
-  .hero-stat .hs-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.7rem;}
-  .hero-stat .hs-label{margin-top:4px;font-size:0.86rem;color:var(--ink-soft);max-width:16ch;}
-  @media (max-width:560px){ .hero-stats{flex-direction:column;gap:18px;} .hero-stat{border-right:none;margin-right:0;padding-right:0;} }
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.4rem);line-height:1.02;}
+  .hero-desc{margin-top:22px;font-size:1.15rem;color:var(--ink-soft);max-width:46ch;}
   .hero-cta{display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:16px 30px;border-radius:999px;background:var(--ink);color:var(--cream);font-weight:700;transition:transform .15s ease,background .15s ease;}
   .hero-cta:hover{transform:translateY(-1px);background:var(--orange);}
+  .hero-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .hero-stat-grid .stat-card{padding:22px 20px;}
+  .hero-stat-grid .stat-card .num{font-size:clamp(1.4rem,2.4vw,1.7rem);}
+  .hero-stat-grid .stat-card .label{font-size:0.86rem;}
+  .hero-stat-grid .stat-card:nth-child(odd)::before{background:var(--orange);}
+  .hero-stat-grid .stat-card:nth-child(even)::before{background:var(--ink);}
+  @media (max-width:540px){ .hero-stat-grid{grid-template-columns:1fr 1fr;} }
   .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:56px;flex-wrap:wrap;}
   .scroll-cue{display:flex;align-items:center;gap:18px;}
   .scroll-cue span{font-weight:700;}
@@ -183,15 +185,17 @@
   <main id="top">
     <div class="wrap hero">
       <div class="hero-top">
-        <div class="status-pill"><span class="dot"></span>Open to Senior / Lead PM roles in Europe</div>
-        <h1>I help platforms<br>surface what<br>people want</h1>
-        <p class="hero-desc">Product Manager with 5+ years scaling discovery, search &amp; recommendation for platforms with 100M+ monthly active users.</p>
-        <a class="hero-cta" href="#work">See the work &rarr;</a>
-        <div class="hero-stats">
-          <div class="hero-stat"><div class="hs-num">5+ yrs</div><div class="hs-label">Discovery, search &amp; recommendation</div></div>
-          <div class="hero-stat"><div class="hs-num">+160%</div><div class="hs-label">Interactions lift, Zhihu overhaul</div></div>
-          <div class="hero-stat"><div class="hs-num">100M+</div><div class="hs-label">MAU platforms shipped for</div></div>
-          <div class="hero-stat"><div class="hs-num">P9</div><div class="hs-label">Top IC grade, promoted 4&times;</div></div>
+        <div>
+          <div class="status-pill"><span class="dot"></span>Open to Senior / Lead PM roles in Europe</div>
+          <h1>I help platforms<br>surface what<br>people want</h1>
+          <p class="hero-desc">Product Manager with 5+ years scaling discovery, search &amp; recommendation for platforms with 100M+ monthly active users.</p>
+          <a class="hero-cta" href="#work">See the work &rarr;</a>
+        </div>
+        <div class="hero-stat-grid">
+          <div class="stat-card"><div class="num">5+ yrs</div><div class="label">Discovery, search &amp; recommendation</div></div>
+          <div class="stat-card"><div class="num">+160%</div><div class="label">Interactions lift, Zhihu overhaul</div></div>
+          <div class="stat-card"><div class="num">100M+</div><div class="label">MAU platforms shipped for</div></div>
+          <div class="stat-card"><div class="num">P9</div><div class="label">Top IC grade, promoted 4&times;</div></div>
         </div>
       </div>
 
